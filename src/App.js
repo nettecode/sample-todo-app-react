@@ -17,6 +17,10 @@ function App() {
   },
   ];
 
+  const handleChange = () => {
+    console.log('Changed!');
+  }
+
   return (
     <div className="App">
       <header>
@@ -24,7 +28,7 @@ function App() {
       </header>
       <main>
         <ul>
-          {tasks.map(task => <li><input type="checkbox" checked={task.done} />{task.name}</li>)}
+          {tasks.map((task, i) => <li key={i}><input type="checkbox" checked={task.done} onChange={() => handleChange()} />{task.name}</li>)}
         </ul>
       </main>
     </div>
