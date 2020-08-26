@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
 function App() {
-  let tasks = [{
-    name: 'Todo #1',
-    done: true
-  },
-  {
-    name: 'Todo #2',
-    done: false
-  },
-  {
-    name: 'Todo #3',
-    done: true
-  },
-  ];
+  const [tasks, setTasks] = useState(
+    [{
+      name: 'Todo #1',
+      done: true
+    },
+    {
+      name: 'Todo #2',
+      done: false
+    },
+    {
+      name: 'Todo #3',
+      done: true
+    },
+    ]
+  );
 
   const handleChange = (index) => {
     console.log(index);
-    tasks[index].done = !tasks[index].done;
-    console.log(tasks)
+    let newTasks = [...tasks];
+    newTasks[index] = { ...tasks[index], done: !tasks[index].done };
+    setTasks(newTasks);
   }
 
   return (
