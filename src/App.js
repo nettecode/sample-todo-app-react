@@ -1,7 +1,10 @@
 import React from 'react';
+
 import './App.css';
 
 function App() {
+  let tasks = ['Todo #1', 'Todo #2', 'Todo #3', 'Todo #4'];
+
   return (
     <div className="App">
       <header>
@@ -9,9 +12,7 @@ function App() {
       </header>
       <main>
         <ul>
-          <li>Todo #1</li>
-          <li>Todo #2</li>
-          <li>Todo #3</li>
+          {tasks.map(task => <li>{task}</li>)}
         </ul>
       </main>
     </div>
