@@ -17,8 +17,10 @@ function App() {
   },
   ];
 
-  const handleChange = () => {
-    console.log('Changed!');
+  const handleChange = (index) => {
+    console.log(index);
+    tasks[index].done = !tasks[index].done;
+    console.log(tasks)
   }
 
   return (
@@ -28,7 +30,7 @@ function App() {
       </header>
       <main>
         <ul>
-          {tasks.map((task, i) => <li key={i}><input type="checkbox" checked={task.done} onChange={() => handleChange()} />{task.name}</li>)}
+          {tasks.map((task, i) => <li key={i}><input type="checkbox" checked={task.done} onChange={() => handleChange(i)} />{task.name}</li>)}
         </ul>
       </main>
     </div>
