@@ -3,7 +3,19 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  let tasks = ['Todo #1', 'Todo #2', 'Todo #3', 'Todo #4'];
+  let tasks = [{
+    name: 'Todo #1',
+    done: true
+  },
+  {
+    name: 'Todo #2',
+    done: false
+  },
+  {
+    name: 'Todo #3',
+    done: true
+  },
+  ];
 
   return (
     <div className="App">
@@ -12,7 +24,7 @@ function App() {
       </header>
       <main>
         <ul>
-          {tasks.map(task => <li>{task}</li>)}
+          {tasks.map(task => <li><input type="checkbox" checked={task.done} />{task.name}</li>)}
         </ul>
       </main>
     </div>
